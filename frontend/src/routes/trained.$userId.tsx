@@ -34,13 +34,15 @@ function TrainedComponent() {
 
       if (!response.ok) throw new Error("Upload failed");
 
-      const annotations = await response.json();
+      const data = await response.json();
+      const { annotations, content } = data;
 
       navigate({
         to: "/feedback",
         search: {
           annotations,
           userId,
+          content,
         },
       });
     } catch (e) {

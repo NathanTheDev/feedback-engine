@@ -26,7 +26,7 @@ function GenLinkComponent() {
 
   return (
     <div className="min-h-screen bg-[#1C1714] flex flex-col items-center justify-center p-8">
-      <p className="text-[#A89880] text-sm font-bold mb-4">Trained link to provide to your students</p>
+      <p className="text-[#A89880] text-sm font-bold mb-4">This link has been trained on the information you have provided, send it to your students for them to access the AI feedback tool</p>
       <div className="flex items-center gap-3 w-full max-w-2xl bg-[#252019] border border-[#2E2820] rounded-full px-6 py-4">
         <span className="flex-1 text-red-400 font-mono text-lg truncate">{url}</span>
         <button

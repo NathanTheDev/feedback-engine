@@ -10,6 +10,7 @@ from supertokens_python.framework.fastapi import get_middleware
 import os
 from dotenv import load_dotenv
 from feedback.util import read_docx, extract_docx_comments
+from pydantic import BaseModel
 
 load_dotenv()
 
@@ -96,15 +97,26 @@ async def ingest(
         
     return Response(status_code=200)
 
+class CheckResponse(BaseModel):
+    content: str
+    annotations: list[Annotation]
 
-@app.post("/check", response_model=list[Annotation])
+@app.post("/check", response_model=CheckResponse)
 async def check(
     file: UploadFile = File(...),  # noqa: B008
-) -> list[Annotation]:
+) -> CheckResponse:
     _validate_docx(file)
-    return [
-        Annotation(
-            span="The play ends happily.",
-            comment="Oversimplified. Resolution is more ambiguous than stated.",
-        ),
-    ]
+    content = await read_docx(file)
+    return CheckResponse(
+        content=content,
+        annotations=[
+            Annotation(
+                span="Kind regards",
+                comment="Oversimplified. Resolution is more ambiguous than stated.",
+            ),
+            Annotation(
+                span="I am eager to contribute",
+                comment="Bro, you ainted eager, you just begging for a job.",
+            ),
+        ]
+    )

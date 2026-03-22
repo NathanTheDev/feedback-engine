@@ -1,0 +1,129 @@
+{
+  "331058000": {
+    "doc_id": 331058000,
+    "filename": "Week 3 Tutorial Questions.docx",
+    "uploaded_at": "2026-03-22T19:27:16.165820",
+    "tags": [
+      {
+        "tag_id": 331058000,
+        "tag": "question posed regarding financial impact",
+        "sentence_idx": 0
+      },
+      {
+        "tag_id": 331058001,
+        "tag": "cause and effect relationship explored",
+        "sentence_idx": 0
+      },
+      {
+        "tag_id": 331058002,
+        "tag": "raises uncertainty about module content",
+        "sentence_idx": 0
+      },
+      {
+        "tag_id": 331058003,
+        "tag": "statement presents a specific problem",
+        "sentence_idx": 0
+      },
+      {
+        "tag_id": 331058004,
+        "tag": "question posed to establish uncertainty",
+        "sentence_idx": 1
+      },
+      {
+        "tag_id": 331058005,
+        "tag": "rhetorical inquiry probes underlying logic",
+        "sentence_idx": 1
+      },
+      {
+        "tag_id": 331058006,
+        "tag": "implied connection to prior knowledge",
+        "sentence_idx": 1
+      },
+      {
+        "tag_id": 331058007,
+        "tag": "question seeks relevant information",
+        "sentence_idx": 1
+      },
+      {
+        "tag_id": 331058008,
+        "tag": "causal relationship established consequence predicted",
+        "sentence_idx": 2
+      },
+      {
+        "tag_id": 331058009,
+        "tag": "logical progression effect described clearly",
+        "sentence_idx": 2
+      },
+      {
+        "tag_id": 331058010,
+        "tag": "economic terms utilized financial impact shown",
+        "sentence_idx": 2
+      },
+      {
+        "tag_id": 331058011,
+        "tag": "conditional statement outcome presented",
+        "sentence_idx": 2
+      },
+      {
+        "tag_id": 331058012,
+        "tag": "cumulative effect multiple negative outcomes",
+        "sentence_idx": 2
+      },
+      {
+        "tag_id": 331058013,
+        "tag": "statement asserts financial consequence",
+        "sentence_idx": 3
+      },
+      {
+        "tag_id": 331058014,
+        "tag": "reduction presented as outcome",
+        "sentence_idx": 3
+      },
+      {
+        "tag_id": 331058015,
+        "tag": "introduces question regarding account types",
+        "sentence_idx": 4
+      },
+      {
+        "tag_id": 331058016,
+        "tag": "categorizes accounts into debitcredit groups",
+        "sentence_idx": 4
+      },
+      {
+        "tag_id": 331058017,
+        "tag": "provides general rule for asset accounts",
+        "sentence_idx": 4
+      },
+      {
+        "tag_id": 331058018,
+        "tag": "offers rule for liability account types",
+        "sentence_idx": 4
+      },
+      {
+        "tag_id": 331058019,
+        "tag": "contrasts account types with balance types",
+        "sentence_idx": 4
+      },
+      {
+        "tag_id": 331058020,
+        "tag": "instructional directive presented as command",
+        "sentence_idx": 5
+      },
+      {
+        "tag_id": 331058021,
+        "tag": "reference to numbered page section",
+        "sentence_idx": 5
+      },
+      {
+        "tag_id": 331058022,
+        "tag": "listing of financial documents provided",
+        "sentence_idx": 5
+      },
+      {
+        "tag_id": 331058023,
+        "tag": "contextualized by users expressed dislike",
+        "sentence_idx": 5
+      }
+    ]
+  }
+}

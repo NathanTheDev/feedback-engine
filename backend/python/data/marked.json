@@ -1,0 +1,54 @@
+{
+  "1261342000": {
+    "doc_id": 1261342000,
+    "filename": "Rando.docx",
+    "uploaded_at": "2026-03-22T19:27:48.462107",
+    "tags": [
+      {
+        "tag_id": 1261342000,
+        "tag": "tone inappropriate for professional context",
+        "sentence_idx": 0
+      },
+      {
+        "tag_id": 1261342001,
+        "tag": "demand establish respectful formality",
+        "sentence_idx": 0
+      },
+      {
+        "tag_id": 1261342002,
+        "tag": "behaviour informal address used",
+        "sentence_idx": 0
+      },
+      {
+        "tag_id": 1261342003,
+        "tag": "argument lacks clear direction",
+        "sentence_idx": 0
+      },
+      {
+        "tag_id": 1261342004,
+        "tag": "demand thesis statement clearly articulated",
+        "sentence_idx": 0
+      },
+      {
+        "tag_id": 1261342005,
+        "tag": "behaviour lacks a central controlling idea",
+        "sentence_idx": 0
+      },
+      {
+        "tag_id": 1261342006,
+        "tag": "critical engagement with source material missing",
+        "sentence_idx": 0
+      },
+      {
+        "tag_id": 1261342007,
+        "tag": "demand deeper analysis of evidence",
+        "sentence_idx": 0
+      },
+      {
+        "tag_id": 1261342008,
+        "tag": "behaviour surfacelevel summary presented as argument",
+        "sentence_idx": 0
+      }
+    ]
+  }
+}

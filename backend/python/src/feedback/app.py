@@ -6,6 +6,7 @@ import faiss
 from dotenv import load_dotenv
 from fastapi import FastAPI, File, Form, HTTPException, Response, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 from supertokens_python import (
     InputAppInfo,
     SupertokensConfig,
@@ -157,13 +158,18 @@ async def ingest(
     return Response(status_code=200)
 
 
+class CheckResponse(BaseModel):
+    content: str
+    annotations: list[Annotation]
+
+
 SIM_THRESHOLD = 0.70
 
 
-@app.post("/check", response_model=list[Annotation])
+@app.post("/check", response_model=CheckResponse)
 async def check(
     file: UploadFile = File(...),  # noqa: B008
-) -> list[Annotation]:
+) -> CheckResponse:
     _validate_docx(file)
 
     raw_text = await read_docx(file)
@@ -176,7 +182,9 @@ async def check(
     sentences = to_sentences(raw_text)
 
     results = []
-    for quality_tag, (score_row, id_row) in zip(record.tags, zip(scores, ids, strict=False), strict=False):
+    for quality_tag, (score_row, id_row) in zip(
+        record.tags, zip(scores, ids, strict=False), strict=False
+    ):
         if float(score_row[0]) < SIM_THRESHOLD:
             continue
         doc_id, tag_idx = unpack_tag_id(int(id_row[0]))
@@ -185,9 +193,12 @@ async def check(
 
     feedback_list = generate_bulk_feedback(results, raw_text)
     if feedback_list is None:
-        return []
+        return CheckResponse(content=raw_text, annotations=[])
 
-    return [
-        Annotation(span=sentence, comment=comment)
-        for (sentence, _), comment in zip(results, feedback_list, strict=False)
-    ]
+    return CheckResponse(
+        content=raw_text,
+        annotations=[
+            Annotation(span=sentence, comment=comment)
+            for (sentence, _), comment in zip(results, feedback_list, strict=False)
+        ],
+    )

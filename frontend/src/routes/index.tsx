@@ -58,13 +58,14 @@ function HomeComponent() {
       <Title />
       <div className="w-full max-w-xl bg-[#252019] rounded-3xl shadow-sm border border-[#2E2820] px-8 py-6 mt-4">
         <Upload
-          label="Upload an example of an essay you would give 100%"
-          content="Upload a .docx file..."
+          label="Upload as many examples of essays you would give full marks to as you can (the more you upload the better the feedback)"
+          content="Upload several .docx file..."
+          multiple={true}
           files={goodFiles}
           onFilesChange={setGoodFiles}
         />
         <Upload
-          label="Upload some examples of essays you have provided feedback on"
+          label="Upload as many examples of essays you have provided feedback on as you can (the more you upload the better the feedback)"
           content="Upload several .docx files..."
           multiple={true}
           files={markedFiles}
@@ -81,7 +82,7 @@ function HomeComponent() {
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className="px-8 py-3 rounded-full bg-red-500 text-white font-bold hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-8 py-3 rounded-full bg-red-500 text-white font-bold hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
             {loading ? "Uploading..." : "Submit"}
           </button>

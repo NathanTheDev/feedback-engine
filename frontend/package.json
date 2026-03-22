@@ -22,6 +22,7 @@
     "@tanstack/react-router": "^1.117.1",
     "@tanstack/router-devtools": "^1.117.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "supertokens-web-js": "^0.16.0"
   }
 }

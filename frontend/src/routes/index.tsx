@@ -4,7 +4,9 @@ import { createFileRoute, redirect, useNavigate } from "@tanstack/react-router";
 import { Upload } from "@/components/ui/Upload";
 import { Title } from "@/components/ui/Title";
 import { Input } from "@/components/ui/Input";
+import { useTheme } from "@/context/ThemeContext";
 import Session from "supertokens-web-js/recipe/session";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 export const Route = createFileRoute("/")({
   beforeLoad: async () => {
@@ -16,6 +18,9 @@ export const Route = createFileRoute("/")({
 
 function HomeComponent() {
   const navigate = useNavigate();
+  const { theme, toggle } = useTheme();
+  const dark = theme === "dark";
+
   const [goodFiles, setGoodFiles] = useState<File[]>([]);
   const [markedFiles, setMarkedFiles] = useState<File[]>([]);
   const [moduleContext, setModuleContext] = useState("");
@@ -27,25 +32,19 @@ function HomeComponent() {
       setError("Please fill in all fields before submitting.");
       return;
     }
-
     setLoading(true);
     setError("");
-
     try {
       const formData = new FormData();
       goodFiles.forEach((f) => formData.append("good", f));
       markedFiles.forEach((f) => formData.append("marked", f));
       formData.append("module_context", moduleContext);
-
       const response = await fetch("http://localhost:8080/ingest", {
         method: "POST",
         body: formData,
       });
-
       if (!response.ok) throw new Error("Upload failed");
-
       navigate({ to: "/genlink" });
-
     } catch (e) {
       setError("Something went wrong. Please try again.");
     } finally {
@@ -54,9 +53,16 @@ function HomeComponent() {
   };
 
   return (
-    <div className="min-h-screen bg-[#1C1714] flex flex-col items-center p-8">
+    <div
+      className={`min-h-screen flex flex-col items-center p-8 transition-colors duration-300 ${dark ? "bg-[#1C1714]" : "bg-[#F5F0EB]"}`}
+    >
       <Title />
-      <div className="w-full max-w-xl bg-[#252019] rounded-3xl shadow-sm border border-[#2E2820] px-8 py-6 mt-4">
+
+      <div
+        className={`w-full max-w-xl rounded-3xl shadow-sm border px-8 py-6 mt-4 transition-colors duration-300 ${
+          dark ? "bg-[#252019] border-[#2E2820]" : "bg-white border-[#E2D9CE]"
+        }`}
+      >
         <Upload
           label="Upload as many examples of essays you would give full marks to as you can (the more you upload the better the feedback)"
           content="Upload several .docx file..."
@@ -77,7 +83,9 @@ function HomeComponent() {
           value={moduleContext}
           onChange={(e) => setModuleContext(e.target.value)}
         />
-        {error && <p className="text-red-400 text-sm text-center mt-4">{error}</p>}
+        {error && (
+          <p className="text-red-400 text-sm text-center mt-4">{error}</p>
+        )}
         <div className="flex justify-center mt-6">
           <button
             onClick={handleSubmit}

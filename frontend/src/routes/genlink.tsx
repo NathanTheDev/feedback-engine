@@ -1,6 +1,8 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import Session from "supertokens-web-js/recipe/session";
 import { useState } from "react";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { useTheme } from "@/context/ThemeContext";
 
 export const Route = createFileRoute("/genlink")({
   beforeLoad: async () => {
@@ -15,6 +17,8 @@ export const Route = createFileRoute("/genlink")({
 
 function GenLinkComponent() {
   const [copied, setCopied] = useState(false);
+  const { theme } = useTheme();
+  const dark = theme === "dark";
   const userId = Route.useLoaderData();
   const url = `http://localhost:3001/trained/${userId}`;
 
@@ -25,9 +29,14 @@ function GenLinkComponent() {
   };
 
   return (
-    <div className="min-h-screen bg-[#1C1714] flex flex-col items-center justify-center p-8">
-      <p className="text-[#A89880] text-sm font-bold mb-4">This link has been trained on the information you have provided, send it to your students for them to access the AI feedback tool</p>
-      <div className="flex items-center gap-3 w-full max-w-2xl bg-[#252019] border border-[#2E2820] rounded-full px-6 py-4">
+    <div className={`min-h-screen flex flex-col items-center justify-center p-8 transition-colors duration-300 ${dark ? "bg-[#1C1714]" : "bg-[#F5F0EB]"}`}>
+      <ThemeToggle />
+      <p className={`text-sm font-bold mb-4 ${dark ? "text-[#A89880]" : "text-[#6B5744]"}`}>
+        Trained link to provide to your students
+      </p>
+      <div className={`flex items-center gap-3 w-full max-w-2xl border rounded-full px-6 py-4 transition-colors duration-300 ${
+        dark ? "bg-[#252019] border-[#2E2820]" : "bg-white border-[#E2D9CE]"
+      }`}>
         <span className="flex-1 text-red-400 font-mono text-lg truncate">{url}</span>
         <button
           onClick={handleCopy}

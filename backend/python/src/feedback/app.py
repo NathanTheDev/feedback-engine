@@ -110,48 +110,29 @@ def health():
     return {"status": "ok"}
 
 
-# @app.post("/ingest")
-# async def ingest(
-#     good: list[UploadFile] = File(...),  # noqa: B008
-#     marked: list[UploadFile] = File(...),  # noqa: B008
-#     module_context: str = Form(...),  # noqa: B008
-# ) -> Response:
-#     for file in good + marked:
-#         _validate_docx(file)
-
-#     good_content = []
-#     for file in good:
-#         good_content.append(await read_docx(file))
-#     # put the good where Andrew wants it
-#     print(good_content)
-
-#     marked_content = []
-#     for file in marked:
-#         marked_content.append(await extract_docx_comments(file))
-#     # put the marked where andrew wants it
-#     print(marked_content)
-
-#     return Response(status_code=200)
-
-
-# Change this layer to list[UploadFile] for production
 @app.post("/ingest")
 async def ingest(
-    good: UploadFile = File(...),  # noqa: B008
-    marked: UploadFile = File(...),  # noqa: B008
+    good: list[UploadFile] = File(...),  # noqa: B008
+    marked: list[UploadFile] = File(...),  # noqa: B008
     module_context: str = Form(...),  # noqa: B008
 ) -> Response:
-    _validate_docx(good)
-    _validate_docx(marked)
+    for file in good:
+        _validate_docx(file)
+    for file in marked:
+        _validate_docx(file)
 
-    raw_text = await read_docx(good)
-    feedback_pairs = await extract_docx_comments(marked)
+    good_records = []
+    for file in good:
+        raw_text = await read_docx(file)
+        good_records.append(tag_good(file.filename or "", raw_text, module_context))
 
-    good_record = tag_good("", raw_text, module_context)
-    marked_record = tag_marked("", feedback_pairs, module_context)
+    marked_records = []
+    for file in marked:
+        feedback_pairs = await extract_docx_comments(file)
+        marked_records.append(tag_marked(file.filename or "", feedback_pairs, module_context))
 
-    save_tags(GOOD_PATH, [good_record])
-    save_tags(MASKED_PATH, [marked_record])
+    save_tags(GOOD_PATH, good_records)
+    save_tags(MASKED_PATH, marked_records)
 
     reload_indexes()
 

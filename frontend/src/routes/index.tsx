@@ -81,7 +81,7 @@ function HomeComponent() {
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className="px-8 py-3 rounded-full bg-red-500 text-white font-bold hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-8 py-3 rounded-full bg-red-500 text-white font-bold hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
             {loading ? "Uploading..." : "Submit"}
           </button>

@@ -1,10 +1,15 @@
 import * as React from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 import { Upload } from "@/components/ui/Upload";
 import { Title } from "@/components/ui/Title";
 import { Input } from "@/components/ui/Input";
+import Session from "supertokens-web-js/recipe/session";
 
 export const Route = createFileRoute("/")({
+  beforeLoad: async () => {
+    const loggedIn = await Session.doesSessionExist();
+    if (!loggedIn) throw redirect({ to: "/login" });
+  },
   component: HomeComponent,
 });
 

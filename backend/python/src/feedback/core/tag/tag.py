@@ -3,8 +3,8 @@
 import json
 import re
 
-from feedback.core.ollama import generate
-from feedback.core.spacy import clean_tags
+from feedback.core.ml.llm import query
+from feedback.core.ml.nlp import clean_tags
 
 _MIN_WORDS = 3
 _MAX_WORDS = 7
@@ -62,7 +62,7 @@ def _build_prompt(*parts: str) -> str:
 
 def _extract(prompt_template: str, parts: list[str]) -> list[str]:
     prompt = _build_prompt(prompt_template, *parts)
-    answer = generate(prompt)
+    answer = query(prompt)
     if answer is None:
         return []
     clean = _JSON_FENCE.sub("", answer).strip()

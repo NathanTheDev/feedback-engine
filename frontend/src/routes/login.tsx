@@ -4,6 +4,7 @@ import { signIn, signUp } from "@/lib/auth";
 import { Title } from "@/components/ui/Title";
 import { useTheme } from "@/context/ThemeContext";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { PButton } from "@/components/ui/PButton";
 
 export const Route = createFileRoute("/login")({
   component: LoginComponent,
@@ -85,12 +86,9 @@ function LoginComponent() {
           />
         )}
         {error && <p className="text-red-400 text-sm text-center">{error}</p>}
-        <button
-          onClick={handleSubmit}
-          className="w-full py-3 rounded-full bg-red-500 text-white font-bold hover:bg-red-600 transition-colors cursor-pointer"
-        >
-          {isSignUp ? "Create account" : "Sign in"}
-        </button>
+
+        <PButton submit={handleSubmit} content={isSignUp ? "Create account" : "Sign in"} />
+        
         <p className={`text-center text-sm ${dark ? "text-[#6B5C4A]" : "text-[#A89880]"}`}>
           {isSignUp ? "Already have an account?" : "Don't have an account?"}{" "}
           <button

@@ -3,6 +3,7 @@ import Session from "supertokens-web-js/recipe/session";
 import { useState } from "react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { useTheme } from "@/context/ThemeContext";
+import { PButton } from "@/components/ui/PButton";
 
 export const Route = createFileRoute("/genlink")({
   beforeLoad: async () => {
@@ -38,12 +39,7 @@ function GenLinkComponent() {
         dark ? "bg-[#252019] border-[#2E2820]" : "bg-white border-[#E2D9CE]"
       }`}>
         <span className="flex-1 text-red-400 font-mono text-lg truncate">{url}</span>
-        <button
-          onClick={handleCopy}
-          className="shrink-0 px-5 py-2 rounded-full bg-red-500 text-white text-sm font-bold hover:bg-red-600 transition-colors cursor-pointer"
-        >
-          {copied ? "Copied!" : "Copy"}
-        </button>
+        <PButton submit={handleCopy} content={copied ? "Copied!" : "Copy"} />
       </div>
     </div>
   );

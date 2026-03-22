@@ -4,6 +4,7 @@ import { Upload } from "@/components/ui/Upload";
 import { Title } from "@/components/ui/Title";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { useTheme } from "@/context/ThemeContext";
+import { PButton } from "@/components/ui/PButton";
 
 export const Route = createFileRoute("/trained/$userId")({
   component: TrainedComponent,
@@ -64,13 +65,7 @@ function TrainedComponent() {
           <p className="text-red-400 text-sm text-center mt-4">{error}</p>
         )}
         <div className="flex justify-center mt-6">
-          <button
-            onClick={handleSubmit}
-            disabled={loading}
-            className="px-8 py-3 rounded-full bg-red-500 text-white font-bold hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
-          >
-            {loading ? "Uploading..." : "Get Feedback"}
-          </button>
+          <PButton submit={handleSubmit} content={loading ? "Uploading..." : "Get Feedback"} />
         </div>
       </div>
     </div>

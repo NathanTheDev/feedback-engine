@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as GenlinkRouteImport } from './routes/genlink'
+import { Route as FeedbackRouteImport } from './routes/feedback'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TrainedUserIdRouteImport } from './routes/trained.$userId'
 
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
@@ -23,40 +25,64 @@ const GenlinkRoute = GenlinkRouteImport.update({
   path: '/genlink',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FeedbackRoute = FeedbackRouteImport.update({
+  id: '/feedback',
+  path: '/feedback',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrainedUserIdRoute = TrainedUserIdRouteImport.update({
+  id: '/trained/$userId',
+  path: '/trained/$userId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/feedback': typeof FeedbackRoute
   '/genlink': typeof GenlinkRoute
   '/login': typeof LoginRoute
+  '/trained/$userId': typeof TrainedUserIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/feedback': typeof FeedbackRoute
   '/genlink': typeof GenlinkRoute
   '/login': typeof LoginRoute
+  '/trained/$userId': typeof TrainedUserIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/feedback': typeof FeedbackRoute
   '/genlink': typeof GenlinkRoute
   '/login': typeof LoginRoute
+  '/trained/$userId': typeof TrainedUserIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/genlink' | '/login'
+  fullPaths: '/' | '/feedback' | '/genlink' | '/login' | '/trained/$userId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/genlink' | '/login'
-  id: '__root__' | '/' | '/genlink' | '/login'
+  to: '/' | '/feedback' | '/genlink' | '/login' | '/trained/$userId'
+  id:
+    | '__root__'
+    | '/'
+    | '/feedback'
+    | '/genlink'
+    | '/login'
+    | '/trained/$userId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FeedbackRoute: typeof FeedbackRoute
   GenlinkRoute: typeof GenlinkRoute
   LoginRoute: typeof LoginRoute
+  TrainedUserIdRoute: typeof TrainedUserIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -75,6 +101,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GenlinkRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/feedback': {
+      id: '/feedback'
+      path: '/feedback'
+      fullPath: '/feedback'
+      preLoaderRoute: typeof FeedbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -82,13 +115,22 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/trained/$userId': {
+      id: '/trained/$userId'
+      path: '/trained/$userId'
+      fullPath: '/trained/$userId'
+      preLoaderRoute: typeof TrainedUserIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FeedbackRoute: FeedbackRoute,
   GenlinkRoute: GenlinkRoute,
   LoginRoute: LoginRoute,
+  TrainedUserIdRoute: TrainedUserIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

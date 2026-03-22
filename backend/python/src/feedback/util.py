@@ -16,6 +16,10 @@ async def extract_docx_comments(file: UploadFile) -> list[tuple[str, str]]:
     
     with zipfile.ZipFile(io.BytesIO(docx_bytes)) as z:
         doc_xml = etree.fromstring(z.read("word/document.xml"))
+        
+        if "word/comments.xml" not in z.namelist():
+            return []
+        
         comments_xml = etree.fromstring(z.read("word/comments.xml"))
 
     comment_map: dict[str, str] = {}

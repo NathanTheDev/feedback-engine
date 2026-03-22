@@ -9,7 +9,7 @@ from supertokens_python.recipe import emailpassword, session
 from supertokens_python.framework.fastapi import get_middleware
 import os
 from dotenv import load_dotenv
-from feedback.utils import read_docx, extract_docx_comments
+from feedback.util import read_docx, extract_docx_comments
 
 load_dotenv()
 

@@ -1,128 +1,243 @@
 {
-  "331058000": {
-    "doc_id": 331058000,
-    "filename": "Week 3 Tutorial Questions.docx",
-    "uploaded_at": "2026-03-22T19:27:16.165820",
+  "914651000": {
+    "doc_id": 914651000,
+    "filename": "marked_1.docx",
+    "uploaded_at": "2026-03-22T23:47:52.817391",
     "tags": [
       {
-        "tag_id": 331058000,
-        "tag": "question posed regarding financial impact",
+        "tag_id": 914651000,
+        "tag": "statement of identity presented",
         "sentence_idx": 0
       },
       {
-        "tag_id": 331058001,
-        "tag": "cause and effect relationship explored",
+        "tag_id": 914651001,
+        "tag": "expresses enthusiasm for opportunity",
         "sentence_idx": 0
       },
       {
-        "tag_id": 331058002,
-        "tag": "raises uncertainty about module content",
+        "tag_id": 914651002,
+        "tag": "highlights global application of work",
         "sentence_idx": 0
       },
       {
-        "tag_id": 331058003,
-        "tag": "statement presents a specific problem",
+        "tag_id": 914651003,
+        "tag": "emphasizes professional growth potential",
         "sentence_idx": 0
       },
       {
-        "tag_id": 331058004,
-        "tag": "question posed to establish uncertainty",
+        "tag_id": 914651004,
+        "tag": "temporal sequence establishes timeframe",
         "sentence_idx": 1
       },
       {
-        "tag_id": 331058005,
-        "tag": "rhetorical inquiry probes underlying logic",
+        "tag_id": 914651005,
+        "tag": "role assignment clarifies responsibility",
         "sentence_idx": 1
       },
       {
-        "tag_id": 331058006,
-        "tag": "implied connection to prior knowledge",
+        "tag_id": 914651006,
+        "tag": "quantified achievement highlights success",
         "sentence_idx": 1
       },
       {
-        "tag_id": 331058007,
-        "tag": "question seeks relevant information",
+        "tag_id": 914651007,
+        "tag": "ownership asserted over technical areas",
         "sentence_idx": 1
       },
       {
-        "tag_id": 331058008,
-        "tag": "causal relationship established consequence predicted",
+        "tag_id": 914651008,
+        "tag": "collaboration noted with supporting tasks",
+        "sentence_idx": 1
+      },
+      {
+        "tag_id": 914651009,
+        "tag": "lists components and technologies",
         "sentence_idx": 2
       },
       {
-        "tag_id": 331058009,
-        "tag": "logical progression effect described clearly",
+        "tag_id": 914651010,
+        "tag": "enumerates tools utilized",
         "sentence_idx": 2
       },
       {
-        "tag_id": 331058010,
-        "tag": "economic terms utilized financial impact shown",
+        "tag_id": 914651011,
+        "tag": "shows technical stack employed",
         "sentence_idx": 2
       },
       {
-        "tag_id": 331058011,
-        "tag": "conditional statement outcome presented",
-        "sentence_idx": 2
-      },
-      {
-        "tag_id": 331058012,
-        "tag": "cumulative effect multiple negative outcomes",
-        "sentence_idx": 2
-      },
-      {
-        "tag_id": 331058013,
-        "tag": "statement asserts financial consequence",
+        "tag_id": 914651012,
+        "tag": "statement asserts experiential learning",
         "sentence_idx": 3
       },
       {
-        "tag_id": 331058014,
-        "tag": "reduction presented as outcome",
+        "tag_id": 914651013,
+        "tag": "verb phrase indicates accomplishment",
         "sentence_idx": 3
       },
       {
-        "tag_id": 331058015,
-        "tag": "introduces question regarding account types",
+        "tag_id": 914651014,
+        "tag": "subject specifies project domain",
+        "sentence_idx": 3
+      },
+      {
+        "tag_id": 914651015,
+        "tag": "details list technical skills",
+        "sentence_idx": 3
+      },
+      {
+        "tag_id": 914651016,
+        "tag": "experience presented as gained",
+        "sentence_idx": 3
+      },
+      {
+        "tag_id": 914651017,
+        "tag": "demonstrates technical expertise presented",
         "sentence_idx": 4
       },
       {
-        "tag_id": 331058016,
-        "tag": "categorizes accounts into debitcredit groups",
+        "tag_id": 914651018,
+        "tag": "details specific technical components listed",
         "sentence_idx": 4
       },
       {
-        "tag_id": 331058017,
-        "tag": "provides general rule for asset accounts",
+        "tag_id": 914651019,
+        "tag": "highlights requirements for system design",
         "sentence_idx": 4
       },
       {
-        "tag_id": 331058018,
-        "tag": "offers rule for liability account types",
+        "tag_id": 914651020,
+        "tag": "shows consideration of key attributes",
         "sentence_idx": 4
       },
       {
-        "tag_id": 331058019,
-        "tag": "contrasts account types with balance types",
-        "sentence_idx": 4
-      },
-      {
-        "tag_id": 331058020,
-        "tag": "instructional directive presented as command",
+        "tag_id": 914651021,
+        "tag": "demonstrates increased knowledge acquisition",
         "sentence_idx": 5
       },
       {
-        "tag_id": 331058021,
-        "tag": "reference to numbered page section",
+        "tag_id": 914651022,
+        "tag": "highlights key concepts learned",
         "sentence_idx": 5
       },
       {
-        "tag_id": 331058022,
-        "tag": "listing of financial documents provided",
+        "tag_id": 914651023,
+        "tag": "relates new knowledge to existing",
         "sentence_idx": 5
       },
       {
-        "tag_id": 331058023,
-        "tag": "contextualized by users expressed dislike",
+        "tag_id": 914651024,
+        "tag": "shows application of learned skills",
         "sentence_idx": 5
+      },
+      {
+        "tag_id": 914651025,
+        "tag": "emphasizes practical considerations",
+        "sentence_idx": 5
+      },
+      {
+        "tag_id": 914651026,
+        "tag": "connects theory to practice effectively",
+        "sentence_idx": 5
+      },
+      {
+        "tag_id": 914651027,
+        "tag": "subject establishes desire for growth",
+        "sentence_idx": 6
+      },
+      {
+        "tag_id": 914651028,
+        "tag": "personal experience frames aspiration",
+        "sentence_idx": 6
+      },
+      {
+        "tag_id": 914651029,
+        "tag": "verb contribute highlights intention",
+        "sentence_idx": 6
+      },
+      {
+        "tag_id": 914651030,
+        "tag": "adjective meaningfully specifies goal",
+        "sentence_idx": 6
+      },
+      {
+        "tag_id": 914651031,
+        "tag": "clause continue to develop shows progression",
+        "sentence_idx": 6
+      },
+      {
+        "tag_id": 914651032,
+        "tag": "statement of values presented",
+        "sentence_idx": 7
+      },
+      {
+        "tag_id": 914651033,
+        "tag": "personal qualities emphasized explicitly",
+        "sentence_idx": 7
+      },
+      {
+        "tag_id": 914651034,
+        "tag": "opportunity offered to team",
+        "sentence_idx": 7
+      },
+      {
+        "tag_id": 914651035,
+        "tag": "mindset linked to desired outcome",
+        "sentence_idx": 7
+      },
+      {
+        "tag_id": 914651036,
+        "tag": "expresses gratitude for evaluation",
+        "sentence_idx": 8
+      },
+      {
+        "tag_id": 914651037,
+        "tag": "acknowledges submission of request",
+        "sentence_idx": 8
+      },
+      {
+        "tag_id": 914651038,
+        "tag": "offers polite recognition offered",
+        "sentence_idx": 8
+      },
+      {
+        "tag_id": 914651039,
+        "tag": "statement expresses desire for discussion",
+        "sentence_idx": 9
+      },
+      {
+        "tag_id": 914651040,
+        "tag": "connection proposed between personal traits",
+        "sentence_idx": 9
+      },
+      {
+        "tag_id": 914651041,
+        "tag": "alignment suggested with organizational aims",
+        "sentence_idx": 9
+      },
+      {
+        "tag_id": 914651042,
+        "tag": "background and enthusiasm highlighted",
+        "sentence_idx": 9
+      },
+      {
+        "tag_id": 914651043,
+        "tag": "reiteration of shared values present",
+        "sentence_idx": 9
+      },
+      {
+        "tag_id": 914651044,
+        "tag": "greeting establishes sender identity",
+        "sentence_idx": 10
+      },
+      {
+        "tag_id": 914651045,
+        "tag": "formal closing utilized",
+        "sentence_idx": 10
+      },
+      {
+        "tag_id": 914651046,
+        "tag": "name appended as identifier",
+        "sentence_idx": 10
       }
     ]
   }

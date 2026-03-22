@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/Input";
 import { useTheme } from "@/context/ThemeContext";
 import Session from "supertokens-web-js/recipe/session";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { PButton } from "@/components/ui/PButton";
 
 export const Route = createFileRoute("/")({
   beforeLoad: async () => {
@@ -87,13 +88,7 @@ function HomeComponent() {
           <p className="text-red-400 text-sm text-center mt-4">{error}</p>
         )}
         <div className="flex justify-center mt-6">
-          <button
-            onClick={handleSubmit}
-            disabled={loading}
-            className="px-8 py-3 rounded-full bg-red-500 text-white font-bold hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
-          >
-            {loading ? "Uploading..." : "Submit"}
-          </button>
+          <PButton submit={handleSubmit} content={loading ? "Uploading..." : "Submit"} />
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
-import { createFileRoute, redirect } from "@tanstack/react-router";
+import { createFileRoute, redirect, useNavigate } from "@tanstack/react-router";
 import { Upload } from "@/components/ui/Upload";
 import { Title } from "@/components/ui/Title";
 import { Input } from "@/components/ui/Input";
@@ -15,6 +15,7 @@ export const Route = createFileRoute("/")({
 });
 
 function HomeComponent() {
+  const navigate = useNavigate();
   const [goodFiles, setGoodFiles] = useState<File[]>([]);
   const [markedFiles, setMarkedFiles] = useState<File[]>([]);
   const [moduleContext, setModuleContext] = useState("");
@@ -43,7 +44,7 @@ function HomeComponent() {
 
       if (!response.ok) throw new Error("Upload failed");
 
-      console.log("Finished");
+      navigate({ to: "/genlink" });
 
     } catch (e) {
       setError("Something went wrong. Please try again.");

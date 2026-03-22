@@ -12,10 +12,19 @@ requires-python = ">=3.12, <3.14"
 authors = [{ name = "Andrew", email = "hello.andrew.yan@outlook.com" }]
 
 dependencies = [
+  # web
+  "fastapi==0.135.1",
+
+  # ml
+  "faiss-cpu==1.13.2",
   "ollama==0.6.1",
+
+  # nlp
   "spacy==3.8.11",
   "en-core-web-lg",
-  "faiss-cpu==1.13.2",
+  
+  # dev
+  "ruff==0.15.7",
 ]
 
 [tool.uv.sources]

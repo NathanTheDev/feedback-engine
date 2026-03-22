@@ -1,13 +1,21 @@
 import logging
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, File, Response, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, Response, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 
 from feedback.models.response import Annotation
 
 LOGGER = logging.getLogger("uvicorn")
+
+
+def _validate_docx(file: UploadFile) -> None:
+    if not file.filename or not file.filename.endswith(".docx"):
+        raise HTTPException(
+            status_code=400, detail=f"{file.filename} is not a .docx file"
+        )
+    LOGGER.info(f"Received: {file.filename}")
 
 
 @asynccontextmanager
@@ -37,25 +45,22 @@ def health():
     return {"status": "ok"}
 
 
-@app.post("/ingest/good")
-async def ingest_good(file: UploadFile = File(...)):  # noqa: B008
+@app.post("/ingest")
+async def ingest(
+    good: list[UploadFile] = File(...),  # noqa: B008
+    marked: list[UploadFile] = File(...),  # noqa: B008
+    module_context: str = Form(...),  # noqa: B008
+) -> Response:
+    for file in good + marked:
+        _validate_docx(file)
     return Response(status_code=200)
 
 
-@app.post("/ingest/marked")
-async def ingest_marked(
+@app.post("/check", response_model=list[Annotation])
+async def check(
     file: UploadFile = File(...),  # noqa: B008
-):
-    return Response(status_code=200)
-
-
-@app.post("/ingest/context")
-async def injest_context(context: str):
-    return Response(status_code=200)
-
-
-@app.post("/analyse", response_model=list[Annotation])
-async def analyse(file: UploadFile = File(...)):  # noqa: B008
+) -> list[Annotation]:
+    _validate_docx(file)
     return [
         Annotation(
             span="The play ends happily.",
